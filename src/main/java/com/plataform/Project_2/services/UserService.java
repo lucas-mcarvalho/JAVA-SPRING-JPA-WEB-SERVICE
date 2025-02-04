@@ -12,6 +12,8 @@ import com.plataform.Project_2.entities.User;
 import com.plataform.Project_2.repositories.UserRepository;
 import com.plataform.Project_2.services.exceptions.DatabaseException;
 import com.plataform.Project_2.services.exceptions.ResourceNotFoundException;
+
+import jakarta.persistence.EntityNotFoundException;
 @Service	
 public class UserService {
 
@@ -42,9 +44,14 @@ public class UserService {
 	}
 	
 	public User update(Long id, User user) {
-		User entity = userrepository.getReferenceById(id);
+		try{
+			User entity = userrepository.getReferenceById(id);
+		
 		updateDate(entity,user);
 		return userrepository.save(entity);
+		}catch(EntityNotFoundException e) {
+			throw  new ResourceNotFoundException(id);
+		}
 	}
 	private void updateDate(User entity, User user) {
 		entity.setName(user.getName());
