@@ -25,4 +25,8 @@ public class UserService {
 	public User insert(User user) {
 		return userrepository.save(user);
 	}
+	
+	public void delete(Long id) {
+		userrepository.deleteById(id);
+	}
 }
