@@ -16,7 +16,6 @@ public class OrderItem implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
-	@JsonIgnore
 	private OrderItemPK id = new OrderItemPK();
 	private Double price;
 	private Integer quantity;
