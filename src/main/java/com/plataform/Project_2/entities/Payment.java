@@ -26,7 +26,13 @@ public class Payment implements Serializable{
 	private Instant moment;
 	
 	@JsonIgnore
+	//RELACIONAMENTO DE 1 PARA 1
 	@OneToOne
+
+
+	/*ESTOU INDICANDO , A UTILIZAÇÃO
+	DA CHAVE PRIMARIA DE ORDER,AS DUAS CHAVES SERÃO AS MESMAS
+	*/
 	@MapsId
 	private Order  order;
 	

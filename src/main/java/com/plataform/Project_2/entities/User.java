@@ -15,22 +15,25 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
-
+//DEFINE COMO UMA TABELA NO BANCO DE DADOS
 @Entity
+//DEFINE O NOME DA TABELA DENTRO DO BANCO DE DADOS
 @Table(name = "tb_user")
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
+	//CHAVE PRIMÁRIA DO BANCO DE DADOS
 	@Id
+	//GERA O ID AUTOMATICAMENTE NO BANCO DE DADOS
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
-	
+	//EVITA O LOOP INFINITO ,AO CONVERTER PARA JSON
 	@JsonIgnore
+	//INDICA QUE UM USUARIO PODE TER VÁRIOS PEDIDOS
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
 		
