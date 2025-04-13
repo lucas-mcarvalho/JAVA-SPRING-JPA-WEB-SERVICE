@@ -10,10 +10,12 @@ public enum OrderStatus {
 	int code;
 	
 	private OrderStatus(int code) {
+
 		this.code = code;
 	}
 
 	public int getCode() {
+
 		return code;
 	}
 	

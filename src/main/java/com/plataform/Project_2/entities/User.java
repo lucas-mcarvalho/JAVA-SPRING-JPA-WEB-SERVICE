@@ -1,6 +1,6 @@
 package com.plataform.Project_2.entities;
 
-import java.io.Serializable;
+import  java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
